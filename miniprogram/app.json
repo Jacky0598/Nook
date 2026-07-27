@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/explore/explore",
+    "pages/post/post",
+    "pages/message/message",
+    "pages/me/me",
+    "pages/detail/detail",
+    "pages/publish/publish"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "校园帮 Campus",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F5F6F8"
+  },
+  "tabBar": {
+    "color": "#9AA0AA",
+    "selectedColor": "#2E5BFF",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/explore/explore", "text": "找服务" },
+      { "pagePath": "pages/post/post", "text": "发布" },
+      { "pagePath": "pages/message/message", "text": "消息" },
+      { "pagePath": "pages/me/me", "text": "我的" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

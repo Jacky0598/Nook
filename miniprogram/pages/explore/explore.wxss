@@ -1,0 +1,115 @@
+.head { background: #fff; padding: 20rpx 24rpx 0; }
+
+.search-box {
+  display: flex; align-items: center;
+  height: 72rpx; background: var(--bg);
+  border-radius: 36rpx; padding: 0 26rpx;
+}
+.search-icon { font-size: 26rpx; margin-right: 12rpx; }
+.search-input { flex: 1; font-size: 27rpx; }
+.ph { color: var(--ink-3); }
+.clear { color: var(--ink-3); font-size: 26rpx; padding: 0 8rpx; }
+
+.tabs { white-space: nowrap; margin-top: 22rpx; }
+.tab {
+  display: inline-block;
+  font-size: 27rpx; color: var(--ink-2);
+  padding: 12rpx 4rpx; margin-right: 40rpx;
+  position: relative;
+}
+.tab-on { color: var(--brand); font-weight: 600; }
+.tab-on::after {
+  content: ''; position: absolute; left: 50%; bottom: 0;
+  transform: translateX(-50%);
+  width: 40rpx; height: 6rpx; border-radius: 3rpx;
+  background: var(--brand);
+}
+
+.toolbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20rpx 0 20rpx;
+}
+.sorts { display: flex; }
+.sort {
+  font-size: 24rpx; color: var(--ink-2);
+  background: var(--bg); border-radius: 8rpx;
+  padding: 10rpx 20rpx; margin-right: 14rpx;
+}
+.sort-on { background: var(--brand-soft); color: var(--brand); font-weight: 500; }
+
+.cmp-toggle {
+  font-size: 24rpx; color: var(--ink-2);
+  border: 2rpx solid var(--line); border-radius: 8rpx;
+  padding: 8rpx 20rpx;
+}
+.cmp-on { background: var(--brand); color: #fff; border-color: var(--brand); }
+
+.cmp-hint {
+  font-size: 23rpx; color: var(--brand);
+  background: var(--brand-soft);
+  margin: 16rpx 24rpx 0; padding: 16rpx 20rpx; border-radius: 12rpx;
+  line-height: 1.5;
+}
+
+/* 比价表 */
+.cmp-wrap { margin: 16rpx 0 0; padding: 0 24rpx; }
+.cmp-row { display: flex; padding: 4rpx 0 8rpx; }
+.cmp-col {
+  width: 280rpx; flex-shrink: 0;
+  background: #fff; border-radius: 16rpx;
+  margin-right: 16rpx; padding: 20rpx;
+  border: 2rpx solid var(--brand);
+}
+.cmp-name { font-size: 28rpx; font-weight: 600; margin-bottom: 14rpx; }
+.cmp-cell {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 10rpx 0; border-top: 2rpx solid var(--line);
+}
+.cmp-k { font-size: 22rpx; color: var(--ink-3); }
+.cmp-v { font-size: 24rpx; }
+.cmp-last { display: block; }
+
+.result-count {
+  font-size: 23rpx; color: var(--ink-3);
+  padding: 24rpx 24rpx 12rpx;
+}
+
+/* 结果行 */
+.row { display: flex; align-items: flex-start; }
+.row-on { border: 2rpx solid var(--brand); }
+.check {
+  width: 40rpx; height: 40rpx; border-radius: 20rpx;
+  border: 2rpx solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24rpx; color: var(--brand);
+  margin-right: 20rpx; flex-shrink: 0; margin-top: 4rpx;
+}
+.check-on { background: var(--brand); border-color: var(--brand); color: #fff; }
+.row-body { flex: 1; min-width: 0; }
+.row-title { font-size: 29rpx; font-weight: 600; line-height: 1.45; }
+
+.row-seller { display: flex; align-items: center; margin-top: 16rpx; }
+.avatar-sm {
+  width: 40rpx; height: 40rpx; border-radius: 20rpx;
+  background: linear-gradient(135deg, #2E5BFF, #7B9BFF);
+  color: #fff; font-size: 20rpx;
+  display: flex; align-items: center; justify-content: center;
+  margin-right: 12rpx; flex-shrink: 0;
+}
+.row-name { font-size: 25rpx; font-weight: 500; }
+
+.row-badges { margin-top: 14rpx; }
+
+.row-foot {
+  display: flex; align-items: center;
+  margin-top: 18rpx; padding-top: 18rpx;
+  border-top: 2rpx solid var(--line);
+  font-size: 24rpx;
+}
+.row-foot .price { margin-left: auto; }
+.stars { color: var(--warn); font-weight: 600; }
+
+.empty { text-align: center; padding: 100rpx 60rpx; }
+.empty-icon { font-size: 72rpx; }
+.empty-t { font-size: 28rpx; margin-top: 20rpx; }
+.empty-s { font-size: 24rpx; color: var(--ink-3); margin-top: 12rpx; line-height: 1.6; }

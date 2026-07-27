@@ -1,0 +1,62 @@
+<view class="page">
+
+  <view class="form">
+    <view class="field">
+      <text class="label">{{mode === 'offer' ? '服务标题' : '你需要什么帮助'}}</text>
+      <input class="inp" data-field="title" value="{{title}}" bindinput="onInput"
+             placeholder="{{mode === 'offer' ? '如：ETC1000 期末冲刺辅导' : '如：求 FIT1045 Python 辅导'}}"
+             placeholder-class="ph" />
+    </view>
+
+    <view class="field">
+      <text class="label">分类</text>
+      <picker mode="selector" range="{{categories}}" range-key="name" value="{{catIndex}}" bindchange="onCat">
+        <view class="picker">
+          <text>{{categories[catIndex].icon}} {{categories[catIndex].name}}</text>
+          <text class="caret">▾</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <text class="label">详细说明</text>
+      <textarea class="ta" data-field="desc" value="{{desc}}" bindinput="onInput"
+                placeholder="{{mode === 'offer' ? '说明你的资质、讲什么、怎么讲、能带来什么结果' : '说明具体卡在哪、时间要求、地点偏好'}}"
+                placeholder-class="ph" maxlength="500" />
+      <text class="count">{{desc.length}}/500</text>
+    </view>
+
+    <view class="field" wx:if="{{mode === 'offer'}}">
+      <text class="label">价格（RM）</text>
+      <input class="inp" type="digit" data-field="price" value="{{price}}" bindinput="onInput"
+             placeholder="80" placeholder-class="ph" />
+      <text class="hint">建议参考同类服务定价：课程辅导 RM 50–150/小时</text>
+    </view>
+
+    <view class="field" wx:if="{{mode === 'request'}}">
+      <text class="label">预算区间（RM）</text>
+      <view class="range">
+        <input class="inp inp-half" type="digit" data-field="budgetMin" value="{{budgetMin}}" bindinput="onInput" placeholder="最低" placeholder-class="ph" />
+        <text class="tilde">—</text>
+        <input class="inp inp-half" type="digit" data-field="budgetMax" value="{{budgetMax}}" bindinput="onInput" placeholder="最高" placeholder-class="ph" />
+      </view>
+      <text class="hint">写清预算能让报价更快 —— 平台数据显示带预算的需求平均 2 小时内收到首次报价</text>
+    </view>
+
+    <view class="field">
+      <text class="label">{{mode === 'offer' ? '可约时间' : '截止时间'}}</text>
+      <input class="inp" data-field="deadline" value="{{deadline}}" bindinput="onInput"
+             placeholder="如：本周三 18:00 前" placeholder-class="ph" />
+    </view>
+  </view>
+
+  <view class="agree" bindtap="toggleAgree">
+    <view class="cb {{agreed ? 'cb-on' : ''}}">{{agreed ? '✓' : ''}}</view>
+    <text class="agree-t">我已阅读并同意《发布规范》，承诺不发布代写代考、售卖答案或受版权保护的课程材料</text>
+  </view>
+
+  <view class="submit-wrap">
+    <view class="btn btn-primary btn-block" bindtap="submit">提交审核</view>
+  </view>
+
+</view>

@@ -1,0 +1,72 @@
+<view class="page">
+
+  <!-- 用户头部 -->
+  <view class="uhead">
+    <view class="u-avatar">{{user.initial}}</view>
+    <view class="u-meta">
+      <view class="u-name">{{user.nickname}}</view>
+      <view class="u-sub">{{user.school}} · {{user.year}}</view>
+      <view class="u-badges">
+        <text class="badge badge-verify">✅ 学生认证</text>
+        <text class="badge badge-ghost" wx:if="{{user.verifyLevel < 2}}">🎓 学霸认证未开通</text>
+        <text class="badge badge-hd" wx:else>🎓 学霸认证</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 认证引导 -->
+  <view class="upsell" wx:if="{{user.verifyLevel < 2}}" bindtap="goVerify">
+    <view class="up-body">
+      <view class="up-t">完成「学霸认证」，开始接单</view>
+      <view class="up-d">上传成绩单即可挂牌辅导服务。带 HD 标识的服务者，平均接单量是普通用户的 3 倍。</view>
+    </view>
+    <view class="up-arrow">›</view>
+  </view>
+
+  <!-- 双身份切换 -->
+  <view class="roletab">
+    <view class="rt {{role === 'buyer' ? 'rt-on' : ''}}" data-role="buyer" bindtap="switchRole">作为买家</view>
+    <view class="rt {{role === 'seller' ? 'rt-on' : ''}}" data-role="seller" bindtap="switchRole">作为卖家</view>
+  </view>
+
+  <!-- 买家视图 -->
+  <block wx:if="{{role === 'buyer'}}">
+    <view class="stats">
+      <view class="st"><view class="st-v">3</view><view class="st-k">进行中订单</view></view>
+      <view class="st"><view class="st-v">12</view><view class="st-k">历史订单</view></view>
+      <view class="st"><view class="st-v">2</view><view class="st-k">我的需求</view></view>
+    </view>
+    <view class="cells">
+      <view class="cell" data-name="我的订单" bindtap="onCell"><text>📋 我的订单</text><text class="arrow">›</text></view>
+      <view class="cell" data-name="我发布的需求" bindtap="onCell"><text>🙋 我发布的需求</text><text class="arrow">›</text></view>
+      <view class="cell" data-name="收到的报价" bindtap="onCell"><text>💬 收到的报价</text><text class="arrow">›</text></view>
+      <view class="cell" data-name="我的收藏" bindtap="onCell"><text>⭐ 我的收藏</text><text class="arrow">›</text></view>
+    </view>
+  </block>
+
+  <!-- 卖家视图 -->
+  <block wx:else>
+    <view class="stats">
+      <view class="st"><view class="st-v price">RM {{user.earnings}}</view><view class="st-k">累计收入</view></view>
+      <view class="st"><view class="st-v">8</view><view class="st-k">已完成</view></view>
+      <view class="st"><view class="st-v stars">4.8</view><view class="st-k">我的评分</view></view>
+    </view>
+    <view class="cells">
+      <view class="cell" data-name="我的服务" bindtap="onCell"><text>💰 我挂牌的服务</text><text class="arrow">›</text></view>
+      <view class="cell" data-name="收到的邀约" bindtap="onCell"><text>📨 收到的邀约</text><text class="arrow">›</text></view>
+      <view class="cell" data-name="我的报价" bindtap="onCell"><text>✍️ 我发出的报价</text><text class="arrow">›</text></view>
+      <view class="cell" data-name="收入明细" bindtap="onCell"><text>📊 收入明细</text><text class="arrow">›</text></view>
+    </view>
+  </block>
+
+  <view class="cells">
+    <view class="cell" data-name="身份认证" bindtap="onCell"><text>🛡 身份认证</text><text class="arrow">›</text></view>
+    <view class="cell" data-name="发布规范" bindtap="onCell"><text>📜 发布规范与社区守则</text><text class="arrow">›</text></view>
+    <view class="cell" data-name="帮助与客服" bindtap="onCell"><text>❓ 帮助与客服</text><text class="arrow">›</text></view>
+  </view>
+
+  <view class="foot-note">
+    同一个账号，既是买家也是卖家 —— 这是这个模式最大的优势：获客成本可以摊到两边
+  </view>
+
+</view>

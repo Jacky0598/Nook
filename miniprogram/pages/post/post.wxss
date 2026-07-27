@@ -1,0 +1,33 @@
+.hero { padding: 56rpx 48rpx 40rpx; }
+.hero-t { font-size: 44rpx; font-weight: 700; }
+.hero-s { font-size: 26rpx; color: var(--ink-3); margin-top: 12rpx; }
+
+.opt {
+  display: flex; align-items: flex-start;
+  background: #fff; border-radius: 24rpx;
+  margin: 0 24rpx 24rpx; padding: 36rpx 28rpx;
+}
+.opt-offer { border-left: 8rpx solid var(--price); }
+.opt-request { border-left: 8rpx solid var(--brand); }
+
+.opt-icon { font-size: 52rpx; margin-right: 24rpx; line-height: 1.2; }
+.opt-body { flex: 1; min-width: 0; }
+.opt-t { font-size: 34rpx; font-weight: 600; }
+.opt-d { font-size: 25rpx; color: var(--ink-2); line-height: 1.65; margin-top: 12rpx; }
+.opt-eg { margin-top: 18rpx; }
+.eg {
+  display: block;
+  font-size: 23rpx; color: var(--ink-3);
+  background: var(--bg); border-radius: 8rpx;
+  padding: 10rpx 16rpx; margin-bottom: 10rpx;
+}
+.opt-arrow { font-size: 44rpx; color: var(--ink-3); margin-left: 12rpx; line-height: 1; }
+
+.rules {
+  background: #FFF8E6;
+  border-radius: 20rpx;
+  margin: 20rpx 24rpx;
+  padding: 28rpx;
+}
+.rules-t { font-size: 26rpx; font-weight: 600; color: #B54708; margin-bottom: 14rpx; }
+.rule { font-size: 23rpx; color: #B54708; line-height: 1.85; }

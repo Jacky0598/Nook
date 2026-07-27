@@ -1,0 +1,18 @@
+<view class="page">
+  <view class="conv" wx:for="{{list}}" wx:key="id" data-name="{{item.name}}" bindtap="openChat">
+    <view class="c-avatar {{item.name === '系统通知' ? 'c-sys' : ''}}">{{item.initial}}</view>
+    <view class="c-body">
+      <view class="c-top">
+        <text class="c-name">{{item.name}}</text>
+        <text class="badge badge-ghost" wx:if="{{item.badge}}">{{item.badge}}</text>
+        <text class="c-time">{{item.time}}</text>
+      </view>
+      <view class="c-last">{{item.last}}</view>
+    </view>
+    <view class="c-dot" wx:if="{{item.unread > 0}}">{{item.unread}}</view>
+  </view>
+
+  <view class="tip">
+    💡 请在站内完成沟通与下单。跳到微信私聊后，平台无法保留订单与评价记录，出现纠纷时也无法介入。
+  </view>
+</view>

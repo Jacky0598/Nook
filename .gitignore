@@ -1,0 +1,37 @@
+# ===== macOS =====
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# ===== 编辑器 =====
+.vscode/
+.idea/
+*.swp
+*~
+
+# ===== 微信开发者工具 =====
+# 这个文件存本地个人配置，可能含 AppID 和本机路径，不要提交
+project.private.config.json
+miniprogram_npm/
+.wxcache/
+
+# ===== 依赖与构建产物 =====
+node_modules/
+dist/
+build/
+
+# ===== 日志与临时文件 =====
+*.log
+.tmp/
+tmp/
+
+# ===== 敏感信息（重要）=====
+# 以后接后端时，密钥绝对不要提交到公开仓库
+.env
+.env.*
+*.key
+*.pem
+secrets.json

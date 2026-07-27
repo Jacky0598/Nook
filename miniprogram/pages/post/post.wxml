@@ -1,0 +1,40 @@
+<view class="page">
+  <view class="hero">
+    <view class="hero-t">你想做什么？</view>
+    <view class="hero-s">同一个账号，既能卖也能买</view>
+  </view>
+
+  <view class="opt opt-offer" data-mode="offer" bindtap="goPublish">
+    <view class="opt-icon">💰</view>
+    <view class="opt-body">
+      <view class="opt-t">我能提供服务</view>
+      <view class="opt-d">挂牌你会的东西，让需要的人主动来找你。辅导、选课咨询、转租房间都可以。</view>
+      <view class="opt-eg">
+        <text class="eg">📘 我 ETC1000 拿了 HD，可以带</text>
+        <text class="eg">🏠 我的房间 8 月转租</text>
+      </view>
+    </view>
+    <view class="opt-arrow">›</view>
+  </view>
+
+  <view class="opt opt-request" data-mode="request" bindtap="goPublish">
+    <view class="opt-icon">🙋</view>
+    <view class="opt-body">
+      <view class="opt-t">我需要帮助</view>
+      <view class="opt-d">发布需求和预算，符合条件的同学会来给你报价，你挑最合适的。</view>
+      <view class="opt-eg">
+        <text class="eg">❓ 求 FIT1045 辅导</text>
+        <text class="eg">❓ 帮我看看选课表</text>
+      </view>
+    </view>
+    <view class="opt-arrow">›</view>
+  </view>
+
+  <view class="rules">
+    <view class="rules-t">⚠️ 发布前请确认</view>
+    <view class="rule">· 严禁代写作业、代考、代刷课、代签到 —— 违规将永久封号</view>
+    <view class="rule">· 严禁售卖学校讲义、slides、past papers 等受版权保护的材料</view>
+    <view class="rule">· 房产中介服务需完成持牌认证（BOVAEP REN/REA）后方可发布</view>
+    <view class="rule">· 学生个人转租自己的房间不受此限</view>
+  </view>
+</view>

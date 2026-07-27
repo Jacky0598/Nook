@@ -1,0 +1,72 @@
+/* ============ 全局设计变量 ============ */
+page {
+  --brand: #2E5BFF;
+  --brand-soft: #EAF0FF;
+  --price: #FF6B35;
+  --ink: #16181D;
+  --ink-2: #5A616E;
+  --ink-3: #9AA0AA;
+  --line: #EDEFF3;
+  --bg: #F5F6F8;
+  --ok: #12B76A;
+  --warn: #F79009;
+
+  background: var(--bg);
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+  color: var(--ink);
+}
+
+view, text { box-sizing: border-box; }
+
+/* ============ 通用容器 ============ */
+.page { padding-bottom: 40rpx; }
+.card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 28rpx;
+  margin: 0 24rpx 20rpx;
+}
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 32rpx 24rpx 16rpx;
+}
+.section-title { font-size: 32rpx; font-weight: 600; }
+.section-more { font-size: 24rpx; color: var(--ink-3); }
+
+/* ============ 徽章 ============ */
+.badge {
+  display: inline-block;
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  margin-right: 8rpx;
+  line-height: 1.5;
+}
+.badge-verify { background: #E7F6EC; color: var(--ok); }
+.badge-hd { background: #FFF3E6; color: var(--warn); }
+.badge-license { background: var(--brand-soft); color: var(--brand); }
+.badge-ghost { background: #F2F3F5; color: var(--ink-2); }
+
+/* ============ 价格 ============ */
+.price { color: var(--price); font-weight: 600; }
+.price-num { font-size: 34rpx; }
+.price-unit { font-size: 22rpx; font-weight: 400; }
+
+/* ============ 按钮 ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 60rpx;
+  padding: 0 32rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+}
+.btn-primary { background: var(--brand); color: #fff; }
+.btn-ghost { background: #fff; color: var(--brand); border: 2rpx solid var(--brand); }
+.btn-block { width: 100%; height: 88rpx; border-radius: 44rpx; font-size: 30rpx; }
+
+.muted { color: var(--ink-3); font-size: 24rpx; }
+.divider { height: 2rpx; background: var(--line); margin: 24rpx 0; }

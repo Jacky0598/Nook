@@ -1,0 +1,100 @@
+<view class="page">
+
+  <!-- 搜索 -->
+  <view class="head">
+    <view class="search-box">
+      <text class="search-icon">🔍</text>
+      <input class="search-input" placeholder="课程代码 / 关键词，如 ETC1000"
+             placeholder-class="ph" value="{{keyword}}"
+             bindinput="onKeyword" bindconfirm="onSearch" confirm-type="search" />
+      <text class="clear" wx:if="{{keyword}}" bindtap="clearKeyword">✕</text>
+    </view>
+
+    <!-- 分类 tab -->
+    <scroll-view scroll-x class="tabs" show-scrollbar="{{false}}">
+      <view class="tab {{activeTab === item.key ? 'tab-on' : ''}}"
+            wx:for="{{tabs}}" wx:key="key"
+            data-key="{{item.key}}" bindtap="onTab">{{item.name}}</view>
+    </scroll-view>
+
+    <!-- 排序 + 比价开关 -->
+    <view class="toolbar">
+      <view class="sorts">
+        <text class="sort {{activeSort === item.key ? 'sort-on' : ''}}"
+              wx:for="{{sorts}}" wx:key="key"
+              data-key="{{item.key}}" bindtap="onSort">{{item.name}}</text>
+      </view>
+      <view class="cmp-toggle {{compareMode ? 'cmp-on' : ''}}" bindtap="toggleCompare">
+        {{compareMode ? '退出比价' : '⚖️ 比价'}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 比价说明条 -->
+  <view class="cmp-hint" wx:if="{{compareMode}}">
+    选择最多 3 个服务并排对比 —— 这是小红书和微信群做不到的事
+  </view>
+
+  <!-- 比价表 -->
+  <view class="cmp-wrap" wx:if="{{compareMode && compareList.length > 0}}">
+    <scroll-view scroll-x show-scrollbar="{{false}}">
+      <view class="cmp-row">
+        <view class="cmp-col" wx:for="{{compareList}}" wx:key="id">
+          <view class="cmp-name">{{item.seller.name}}</view>
+          <view class="cmp-cell"><text class="cmp-k">评分</text><text class="cmp-v stars">⭐{{item.seller.rating}} ({{item.seller.reviewCount}})</text></view>
+          <view class="cmp-cell"><text class="cmp-k">价格</text><text class="cmp-v price">RM{{item.price}}</text></view>
+          <view class="cmp-cell"><text class="cmp-k">单位</text><text class="cmp-v">{{item.unit}}</text></view>
+          <view class="cmp-cell"><text class="cmp-k">已接单</text><text class="cmp-v">{{item.seller.orderCount}} 单</text></view>
+          <view class="cmp-cell"><text class="cmp-k">年级</text><text class="cmp-v">{{item.seller.year}}</text></view>
+          <view class="cmp-cell cmp-last">
+            <text class="badge badge-{{b.type}}" wx:for="{{item.seller.badges}}" wx:for-item="b" wx:key="text">{{b.text}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 结果数 -->
+  <view class="result-count">共 {{list.length}} 个结果</view>
+
+  <!-- 列表 -->
+  <view class="card row {{compareMode && item.checked ? 'row-on' : ''}}"
+        wx:for="{{list}}" wx:key="id"
+        data-id="{{item.id}}" bindtap="goDetail">
+
+    <view class="check {{item.checked ? 'check-on' : ''}}" wx:if="{{compareMode}}">
+      {{item.checked ? '✓' : ''}}
+    </view>
+
+    <view class="row-body">
+      <view class="row-title">{{item.title}}</view>
+
+      <view class="row-seller">
+        <view class="avatar-sm">{{item.seller.initial}}</view>
+        <text class="row-name">{{item.seller.name}}</text>
+        <text class="muted">· {{item.seller.year}} · {{item.seller.major}}</text>
+      </view>
+
+      <view class="row-badges">
+        <text class="badge badge-{{b.type}}" wx:for="{{item.seller.badges}}" wx:for-item="b" wx:key="text">{{b.text}}</text>
+        <text class="badge badge-ghost" wx:for="{{item.courseCodes}}" wx:for-item="c" wx:key="*this">{{c}}</text>
+      </view>
+
+      <view class="row-foot">
+        <text class="stars">⭐ {{item.seller.rating}}</text>
+        <text class="muted"> · {{item.seller.orderCount}} 单</text>
+        <view class="price">
+          <text class="price-unit">RM </text><text class="price-num">{{item.price}}</text>
+          <text class="price-unit"> /{{item.unit}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{list.length === 0}}">
+    <view class="empty-icon">🔍</view>
+    <view class="empty-t">没有找到相关服务</view>
+    <view class="empty-s">换个关键词，或去「发布」页发一条需求让别人来报价</view>
+  </view>
+
+</view>

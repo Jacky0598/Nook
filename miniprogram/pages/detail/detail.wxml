@@ -1,0 +1,86 @@
+<view class="page" wx:if="{{listing}}">
+
+  <!-- 头部 -->
+  <view class="hero">
+    <view class="hero-title">{{listing.title}}</view>
+    <view class="hero-price">
+      <text class="price-unit">RM </text><text class="price-num-lg">{{listing.price}}</text>
+      <text class="price-unit"> / {{listing.unit}}</text>
+    </view>
+  </view>
+
+  <!-- 服务者 -->
+  <view class="card">
+    <view class="prov">
+      <view class="avatar-lg">{{listing.seller.initial}}</view>
+      <view class="prov-meta">
+        <view class="prov-name">{{listing.seller.name}}</view>
+        <view class="muted">{{listing.school}} · {{listing.seller.year}} · {{listing.seller.major}}</view>
+        <view class="prov-badges">
+          <text class="badge badge-{{b.type}}" wx:for="{{listing.seller.badges}}" wx:for-item="b" wx:key="text">{{b.text}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="metrics">
+      <view class="metric">
+        <view class="metric-v stars">{{listing.seller.rating}}</view>
+        <view class="metric-k">评分</view>
+      </view>
+      <view class="metric">
+        <view class="metric-v">{{listing.seller.reviewCount}}</view>
+        <view class="metric-k">评价数</view>
+      </view>
+      <view class="metric">
+        <view class="metric-v">{{listing.seller.orderCount}}</view>
+        <view class="metric-k">已完成</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 服务说明 -->
+  <view class="card">
+    <view class="blk-title">服务说明</view>
+    <view class="blk-body">{{listing.desc}}</view>
+    <view class="tag-row">
+      <text class="tag" wx:for="{{listing.tags}}" wx:for-item="t" wx:key="*this">{{t}}</text>
+      <text class="tag" wx:for="{{listing.courseCodes}}" wx:for-item="c" wx:key="*this">{{c}}</text>
+    </view>
+  </view>
+
+  <!-- 服务边界 -->
+  <view class="card boundary">
+    <view class="blk-title">服务边界</view>
+    <view class="bd-row bd-yes"><text class="bd-i">✓</text><text>讲解知识点、教方法、带练习、批改并指出错在哪</text></view>
+    <view class="bd-row bd-no"><text class="bd-i">✕</text><text>代写作业、代做 assignment、代考、提供现成答案</text></view>
+    <view class="bd-note">违反者双方账号将被永久封禁，并可能被学校认定为学术不端。</view>
+  </view>
+
+  <!-- 评价 -->
+  <view class="card">
+    <view class="blk-title">真实评价（{{listing.seller.reviewCount}}）</view>
+    <view class="rv" wx:for="{{reviews}}" wx:key="id">
+      <view class="rv-head">
+        <view class="avatar-sm">{{item.initial}}</view>
+        <text class="rv-name">{{item.name}}</text>
+        <text class="rv-stars stars">{{item.starText}}</text>
+        <text class="rv-date muted">{{item.date}}</text>
+      </view>
+      <view class="rv-tags">
+        <text class="tag" wx:for="{{item.tags}}" wx:for-item="t" wx:key="*this">{{t}}</text>
+      </view>
+      <view class="rv-body">{{item.content}}</view>
+    </view>
+    <view class="rv-note">评价不可删除、不可修改 —— 这是平台信任的基础</view>
+  </view>
+
+  <view class="report" bindtap="onReport">举报此服务</view>
+  <view class="pad"></view>
+
+  <!-- 底部操作栏 -->
+  <view class="actionbar">
+    <view class="btn btn-ghost ab-btn" bindtap="onChat">咨询</view>
+    <view class="btn btn-primary ab-btn ab-main" bindtap="onBook">立即预约</view>
+  </view>
+
+</view>
